@@ -1,57 +1,115 @@
-<?php
-echo '<html>';
-echo '<head>';
-echo '<title>';
-echo 'Registration Page';
-echo '</title>';
-echo '</head>';
-echo '<body bgcolor="Lightskyblue">';
-echo '';
-echo '<img src="https://www.auf.edu.ph/home/images/logo2.png" />';
-echo '<hr />';
-echo '';
-echo '<form action="target.php" method="POST">';
-echo '<label> First Name </label>';
-echo '<input type="text" name="firstname" size="15"/>';
-echo '<label> Middle Name: </label>';
-echo '<input type="text" name="middlename" size="15"/>';
-echo '<label> Last Name: </label>';
-echo '<input type="text" name="lastname" size="15"/> <br> <br>';
-echo 'Email:';
-echo '<input type="email" name="email"/>';
-echo '';
-echo '<label>Phone:</label>';
-echo '<input type="text" name="country code"  value="+63" size="2"/>';
-echo '<input type="number" name="phone_number" size="10"/> <br> <br>';
-echo '';
-echo '<label>Sex:</label><br>';
-echo '<input type="radio" name="sex" value="male" checked="checked" /> Male <br>';
-echo '<input type="radio" name="sex" value="female" /> Female';
-echo '<br>  <br>';
-echo 'Birthdate:';
-echo '<input type="date" name="birthdate"/> <br>';
-echo '<br>';
-echo '';
-echo '<label>Program:</label>';
-echo '<select name="program">';
-echo '<option value="BSA">BS Accountancy</option>';
-echo '<option value="BSBA">BS Business Administration</option>';
-echo '<option value="BSEE">BS Electronics Engineering</option>';
-echo '<option value="BSIT">BS Information Technology</option>';
-echo '<option value="BSCS">BS Computer Science</option>';
-echo '</select>';
-echo '';
-echo '<br>';
-echo '<br>';
-echo '';
-echo 'Address';
-echo '<br>';
-echo '<textarea cols="80" rows="5" name="address"></textarea>';
-echo '<br> <br>';
-echo '';
-echo '<input type="submit" value="Register Now"/>';
-echo '</form>';
-echo '';
-echo '</body>';
-echo '</html>';
-?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: Lightskyblue;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-actions {
+            text-align: center;
+        }
+        .form-actions input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-actions input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.auf.edu.ph/home/images/logo2.png" alt="AUF Logo"/>
+        <h1>Registration Form</h1>
+        <form action="summary.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+            <div class="form-group">
+                <label>Sex:</label>
+                <input type="radio" id="male" name="sex" value="Male" checked />
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="sex" value="Female" />
+                <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="department">College Department:</label>
+                <select id="department" name="department">
+                    <option value="Engineering">Engineering</option>
+                    <option value="Business">Business</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Science">Science</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="program">Program:</label>
+                <input type="text" id="program" name="program" />
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="mobile" />
+            </div>
+            <div class="form-actions">
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
