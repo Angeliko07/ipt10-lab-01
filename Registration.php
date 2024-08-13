@@ -7,67 +7,87 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="https://www.auf.edu.ph/home/images/logo2.png" alt="University Logo">
-    <hr />
+    <div class="container">
+        <header>
+            <img src="https://www.auf.edu.ph/home/images/logo2.png" alt="University Logo">
+            <h1>Registration Form</h1>
+        </header>
 
-    <form action="registration.php" method="POST"> 
-        <label for="firstname">First Name:</label>         
-        <input type="text" id="firstname" name="firstname" size="15"/>
-        <label for="middlename">Middle Name:</label>     
-        <input type="text" id="middlename" name="middlename" size="15"/>
-        <label for="lastname">Last Name:</label>         
-        <input type="text" id="lastname" name="lastname" size="15"/> 
-        <br><br>  
+        <form action="registration.php" method="POST"> 
+            <div class="form-group">
+                <label for="firstname">First Name:</label>         
+                <input type="text" id="firstname" name="firstname" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="middlename">Middle Name:</label>     
+                <input type="text" id="middlename" name="middlename" />
+            </div>
+            
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>         
+                <input type="text" id="lastname" name="lastname" required />
+            </div>
 
-        <label for="email">Email:</label>  
-        <input type="email" id="email" name="email"/> 
-        
-        <label for="country_code">Phone:</label>  
-        <input type="text" id="country_code" name="country_code" value="+63" size="2"/>   
-        <input type="number" id="phone_number" name="phone_number" size="10"/> 
-        <br><br> 
+            <div class="form-group">
+                <label for="email">Email:</label>  
+                <input type="email" id="email" name="email" required />
+            </div>
 
-        <label>Sex:</label><br>  
-        <input type="radio" id="male" name="sex" value="male" checked="checked" /> 
-        <label for="male">Male</label><br>  
-        <input type="radio" id="female" name="sex" value="female" /> 
-        <label for="female">Female</label>
-        <br><br>
+            <div class="form-group">
+                <label for="country_code">Phone:</label>  
+                <input type="text" id="country_code" name="country_code" value="+63" size="2"/>   
+                <input type="number" id="phone_number" name="phone_number" required />
+            </div>
 
-        <label for="birthdate">Birthdate:</label>  
-        <input type="date" id="birthdate" name="birthdate"/> 
-        <br><br>
+            <div class="form-group">
+                <label>Sex:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="sex" value="male" checked />
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="sex" value="female" />
+                    <label for="female">Female</label>
+                </div>
+            </div>
 
-        <label for="program">Program:</label>   
-        <select id="program" name="program">
-            <option value="BSA">BS Accountancy</option>  
-            <option value="BSBA">BS Business Administration</option>  
-            <option value="BSEE">BS Electronics Engineering</option>  
-            <option value="BSIT">BS Information Technology</option>  
-            <option value="BSCS">BS Computer Science</option>
-        </select>  
-        <br><br> 
+            <div class="form-group">
+                <label for="birthdate">Birthdate:</label>  
+                <input type="date" id="birthdate" name="birthdate" required />
+            </div>
 
-        <label for="address">Address:</label>
-        <textarea id="address" cols="80" rows="5" name="address"></textarea>  
-        <br><br>     
+            <div class="form-group">
+                <label for="program">Program:</label>   
+                <select id="program" name="program" required>
+                    <option value="BSA">BS Accountancy</option>  
+                    <option value="BSBA">BS Business Administration</option>  
+                    <option value="BSEE">BS Electronics Engineering</option>  
+                    <option value="BSIT">BS Information Technology</option>  
+                    <option value="BSCS">BS Computer Science</option>
+                </select>  
+            </div>
 
-        <input type="submit" value="Register Now"/>  
-    </form>  
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="5" required></textarea>
+            </div>
 
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
-            echo "<h1>" . htmlspecialchars($_POST['firstname']) . "</h1>";
-            echo "<h1>" . htmlspecialchars($_POST['lastname']) . "</h1>";
-            echo "<h1>" . htmlspecialchars($_POST['email']) . "</h1>";
-            echo "<hr />";
+            <button type="submit">Register Now</button>
+        </form>  
 
-            echo '<pre>';
-            print_r($_POST);
-            echo '</pre>';
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
+                echo "<div class='results'>";
+                echo "<h2>Registration Details</h2>";
+                echo "<p><strong>First Name:</strong> " . htmlspecialchars($_POST['firstname']) . "</p>";
+                echo "<p><strong>Last Name:</strong> " . htmlspecialchars($_POST['lastname']) . "</p>";
+                echo "<p><strong>Email:</strong> " . htmlspecialchars($_POST['email']) . "</p>";
+                echo "<hr />";
+                echo '<pre>' . print_r($_POST, true) . '</pre>';
+                echo "</div>";
+            }
         }
-    }
-    ?>
+        ?>
+    </div>
 </body>
 </html>
