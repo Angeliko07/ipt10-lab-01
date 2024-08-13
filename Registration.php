@@ -58,11 +58,10 @@
             <div class="form-group">
                 <label for="program">Program:</label>   
                 <select id="program" name="program" required>
-                    <option value="BSA">BS Accountancy</option>  
-                    <option value="BSBA">BS Business Administration</option>  
+                    <option value="BSA">BS Computer Science</option>  
+                    <option value="BSBA">BS Information Technology</option>  
                     <option value="BSEE">BS Electronics Engineering</option>  
-                    <option value="BSIT">BS Information Technology</option>  
-                    <option value="BSCS">BS Computer Science</option>
+                    <option value="BSIT">BS Computer Engineering</option>  
                 </select>  
             </div>
 
